@@ -7,9 +7,9 @@ const CatalogueContainer: CSS.Properties = {
     color: 'white',
     backgroundColor: '#00BFFF',
     alignItems: 'center',
-    paddingLeft: '1em',
-    paddingRight: '1em',
-    paddingBottom: '1em',
+    paddingLeft: '1vh',
+    paddingRight: '1vh',
+    paddingBottom: '1vh',
 };
 
 export const CatalogueStyles = {

@@ -1,17 +1,17 @@
 import CSS from 'csstype';
 
 const SubProductCardStyle: CSS.Properties = {
-    paddingTop: '0.5em',
-    paddingRight: '0.4em',
-    paddingLeft: '0.4em',
-    paddingBottom: '0.4em',
+    paddingTop: '0.5vh',
+    paddingRight: '0.4vh',
+    paddingLeft: '0.4vh',
+    paddingBottom: '0.4vh',
     color: 'white',
     background: '#a09c9c',
 };
 
 const SubProductSearchDropDown: CSS.Properties = {
     color: 'black',
-    paddingTop: '1em',
+    paddingTop: '1vh',
     background: '#f0ecec',
     
 };

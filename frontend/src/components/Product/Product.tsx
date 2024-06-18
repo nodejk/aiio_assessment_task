@@ -78,8 +78,8 @@ export function ProductComponent(props: Props) {
         <div>
             <div style={{
                     ...ComponentStyles.common.listItemCard,
-                    paddingLeft: '1em',
-                    paddingRight: '1em',
+                    paddingLeft: '1vh',
+                    paddingRight: '1vh',
                 }}>
                 <div>
                     {props.product.name}

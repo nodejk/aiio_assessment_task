@@ -22,7 +22,6 @@ interface SubProductForm {
     name: string,
 }
 
-
 export function SubCategoryComponent(props: Props) {
     const [subCategoryExpanded, setSubCategoryExpanded] = useState<boolean>(false);
     const [subProducts, setSubProducts] = useState<SubProductState[]>([]);
@@ -135,82 +134,91 @@ export function SubCategoryComponent(props: Props) {
 
     return (
         <React.Fragment>
-        <div style={ComponentStyles.common.listItemCard}>
-            <div>
-                {props.subCategory.name}
+            <div style={ComponentStyles.common.listItemCard}>
+                <div>
+                    {props.subCategory.name}
+                </div>
+                <div>
+                    <input
+                        style={ComponentStyles.common.checkBox}
+                        type='checkbox'
+                        checked={subCategoryExpanded}
+                        onChange={(e) => toggleSubCategoryCheckBox(e.target.checked)}
+                    ></input>
+                </div>
             </div>
-            <div>
-                <input
-                    style={ComponentStyles.common.checkBox}
-                    type='checkbox'
-                    checked={subCategoryExpanded}
-                    onChange={(e) => toggleSubCategoryCheckBox(e.target.checked)}
-                ></input>
-            </div>
-        </div>
-        { subCategoryExpanded && 
-            <div style={ComponentStyles.subProduct.card}>
+            { subCategoryExpanded && 
+                <div style={ComponentStyles.subProduct.card}>
 
-                <p>Select Sub-Products</p>
+                    <p>Select Sub-Products</p>
 
-                <div style={ComponentStyles.subProduct.searchDropDown}>
+                    <div style={ComponentStyles.subProduct.searchDropDown}>
 
-                    <div style={ComponentStyles.common.dropDownWrapper}>
-                        <input 
-                            style={ComponentStyles.common.searchBar}
-                            placeholder='search'
-                            onChange={(e) => onSearchQueryChange(e.target.value)}
-                            type='text'
-                            value={searchQuery}
-                        ></input>
+                        <div style={ComponentStyles.common.dropDownWrapper}>
+                            <input 
+                                style={ComponentStyles.common.searchBar}
+                                placeholder='search'
+                                onChange={(e) => onSearchQueryChange(e.target.value)}
+                                type='text'
+                                value={searchQuery}
+                            ></input>
 
-                        { filteredSubProducts.map((subProd) =>  
-                            <SubProductComponent
-                                toggleCheckBoxChange={toggleSubProductCheckBox}
-                                key={subProd.id}
-                                subCategoryId={props.subCategory.id}
-                                subProduct={subProd}
-                            />,
-                        )}
+                            { filteredSubProducts.map((subProd) =>  
+                                <SubProductComponent
+                                    toggleCheckBoxChange={toggleSubProductCheckBox}
+                                    key={subProd.id}
+                                    subCategoryId={props.subCategory.id}
+                                    subProduct={subProd}
+                                />,
+                            )}
 
-                        <div style={{paddingBottom: '1em', height: '4em', alignContent: 'center'}}>
-                            { 
-                                !formState && 
-                                <div>
-                                    <button onClick={toggleSubProductForm}>+ ADD SUB-PRODUCT</button>
-                                </div>
-                            }
-                            {
-                                formState &&
-                                <div style={{display: 'flex',  justifyContent: 'space-between'}}>
-                                    <input
-                                        style={{width: '75%'}}
-                                        onChange={(e) => onSubProductFormChange(e.target.value)}>    
-                                    </input>
-                                    <div style={{display: 'flex', width: '20%', justifyContent: 'space-evenly'}}> 
-                                        <button
-                                            style={ComponentStyles.common.saveButton}
-                                            onClick={submitSubProductForm}
-                                        >+ADD</button>
-                                        <button 
-                                            style={ComponentStyles.common.cancelButton}
-                                            onClick={toggleSubProductForm}
-                                        >CANCEL</button>
+                            <div style={{
+                                    paddingTop: '1vh', 
+                                    paddingBottom: '1vh', 
+                                    height: '4em', 
+                                    alignContent: 'center',
+                                }}>
+                                { 
+                                    !formState && 
+                                    <div>
+                                        <button onClick={toggleSubProductForm}>+ ADD SUB-PRODUCT</button>
                                     </div>
-                                </div>
-                            }
-                            <Snackbar
-                                open={formError && formState}
-                                autoHideDuration={3000}
-                                onClose={handleSnackBarClose}
-                                message='Sub-Product Name can not be empty'
-                            />    
+                                }
+                                {
+                                    formState &&
+                                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                        <input
+                                            style={{width: '80%'}}
+                                            onChange={(e) => onSubProductFormChange(e.target.value)}>    
+                                        </input>
+                                        <div style={{
+                                                display: 'flex', 
+                                                width: '30%', 
+                                                gap: '1vh', 
+                                                justifyContent: 'flex-end',
+                                            }}> 
+                                            <button
+                                                style={ComponentStyles.common.saveButton}
+                                                onClick={submitSubProductForm}
+                                            >+ADD</button>
+                                            <button 
+                                                style={ComponentStyles.common.cancelButton}
+                                                onClick={toggleSubProductForm}
+                                            >CANCEL</button>
+                                        </div>
+                                    </div>
+                                }
+                                <Snackbar
+                                    open={formError && formState}
+                                    autoHideDuration={3000}
+                                    onClose={handleSnackBarClose}
+                                    message='Sub-Product Name can not be empty'
+                                />    
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        }
-    </React.Fragment>
-        
+            }
+        </React.Fragment>
     );
 }

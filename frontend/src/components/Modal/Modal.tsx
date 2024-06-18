@@ -100,8 +100,8 @@ export function Modal() {
                         <div style={{
                                 display: 'flex', 
                                 justifyContent: 'space-between',
-                                paddingTop: '1em',
-                                margin: '1em',
+                                paddingTop: '1vh',
+                                margin: '1vh',
                             }}>
                             <button 
                                 style={ComponentStyles.common.cancelButton}

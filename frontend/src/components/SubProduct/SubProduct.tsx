@@ -21,10 +21,9 @@ export function SubProductComponent (props: Props) {
         <div style={{
                 ...ComponentStyles.common.listItemCard, 
                 backgroundColor: '#e0e4e4', 
-                marginTop: '0.2em',
-                marginBottom: '0.2em',
-                paddingLeft: '1em',
-                paddingRight: '1em',
+                marginTop: '0.9vh',
+                paddingLeft: '1vh',
+                paddingRight: '1vh',
             }}>
             <div>
                 {props.subProduct.name}

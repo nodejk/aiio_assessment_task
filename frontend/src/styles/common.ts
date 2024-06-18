@@ -8,8 +8,8 @@ const CheckBoxStyle: CSS.Properties = {
 
 const ListItemCard: CSS.Properties = {
     display: 'flex',
-    paddingTop: '1em',
-    paddingBottom: '1em',
+    paddingTop: '1vh',
+    paddingBottom: '1vh',
     justifyContent: 'space-between',
     alignItems: 'center',
 };
@@ -21,8 +21,8 @@ const SearchBar: CSS.Properties = {
 };
 
 const DropDownWrapper: CSS.Properties = {     
-    marginLeft: '1em',
-    marginRight: '1em',
+    marginLeft: '1vh',
+    marginRight: '1vh',
 };
 
 const SaveButton: CSS.Properties = {
@@ -66,8 +66,8 @@ const ModalBox: CSS.Properties = {
     position:'fixed',
     alignSelf: 'center',
     background: 'white',
-    padding: '2rem',
-    margin: '1em',
+    padding: '2vh',
+    margin: '1vh',
     width: '30vw',
     top: '50veh',
     alignItems: 'center',
