@@ -1,4 +1,4 @@
-# AIIO Assesment Task
+# AIIO Assessment Task
 
 
 ## Tasks Done ⚙️
