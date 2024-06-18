@@ -65,7 +65,6 @@ export const catalogueSlice = createSlice({
 
             const allProductsSelected: Product[] = [];
 
-
             for (const productKey in selectedProducts) {
                 allProductsSelected.push(selectedProducts[productKey]);
             } 
