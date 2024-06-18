@@ -16,7 +16,10 @@
         * Created automated data and table migration for postgres database on application startup
         * Added autoflake, isort and black for formatting code.
 
+
 ## Running the code 🧑‍💻
 `
 docker-compose up
 `
+
+The web-application can be opened at **http://localhost:5173**.
