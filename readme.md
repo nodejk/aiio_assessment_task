@@ -22,4 +22,4 @@
 docker-compose up
 `
 
-The web-application can be opened at **http://localhost:5173**.
+After all the containers have booted up, the web-application can be opened at **http://localhost:5173**.
