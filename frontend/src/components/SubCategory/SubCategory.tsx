@@ -1,12 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { SubCategory } from '../../models/SubCategory';
 import { SubProduct } from '../../models/SubProduct';
 import { API } from '../../services';
 import { SubProductComponent } from '../SubProduct/SubProduct';
-import { useAppDispatch, useAppSelector } from '../../store';
-import { Checkbox, List, ListItem, Snackbar } from '@mui/material';
+import { useAppDispatch } from '../../store';
+import { Snackbar } from '@mui/material';
 import { ComponentStyles } from '../../styles';
 import { CatalogueActions } from '../../store/CatalogueStore';
+
 interface Props {
     productId: number,
     onCheckBoxChange: (value: boolean, subCategoryId: number) => void,

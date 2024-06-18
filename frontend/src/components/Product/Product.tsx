@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { API } from '../../services';
-import { useAppDispatch, useAppSelector } from '../../store';
+import { useAppDispatch } from '../../store';
 import { CatalogueActions } from '../../store/CatalogueStore';
 import { Product } from '../../models/Product';
 import { SubCategory } from '../../models/SubCategory';

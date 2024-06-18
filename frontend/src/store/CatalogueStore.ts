@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Product, ProductStore } from '../models/Product';
 import { SubCategory } from '../models/SubCategory';
 import { SubProduct } from '../models/SubProduct';
+
 export interface CatalogueStoreInterface {
     onView: boolean,
     products: {
@@ -26,14 +27,14 @@ export const catalogueSlice = createSlice({
             state.products[id] = {...action.payload, subCategories: {}};
         },
         removeProductFromSelected: (state, action: PayloadAction<{productId: number}>) => {
-            const {productId} = action.payload;
+            const { productId } = action.payload;
 
             delete state.products[productId];
         },
         addSubCategoryToProduct: (state, action: PayloadAction<{subCategory: SubCategory, productId: number}>) => {
-            const {subCategory, productId} = action.payload;
+            const { subCategory, productId } = action.payload;
 
-            const {id} = subCategory;
+            const { id } = subCategory;
 
             state.products[productId].subCategories[id] = {...subCategory, subProducts: {}};
         },
@@ -43,16 +44,14 @@ export const catalogueSlice = createSlice({
             delete state.products[productId].subCategories[subCategoryId];
         },
         addSubProductToSubCategory: (state, action: PayloadAction<{subProduct: SubProduct, productId: number, subCategoryId: number}>) => {
-            const {subProduct, subCategoryId, productId} = action.payload;
+            const { subProduct, subCategoryId, productId } = action.payload;
 
-            const {id} = subProduct;
-
-            console.log('here?');
+            const { id } = subProduct;
 
             state.products[productId].subCategories[subCategoryId].subProducts[id] = subProduct;
         },
         removeSubProductToSubCategory: (state, action: PayloadAction<{subProductId: number, productId: number, subCategoryId: number}>) => {
-            const {subProductId, subCategoryId, productId} = action.payload;
+            const { subProductId, subCategoryId, productId } = action.payload;
 
             delete state.products[productId].subCategories[subCategoryId].subProducts[subProductId];
         },

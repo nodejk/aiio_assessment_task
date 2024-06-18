@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useAppSelector } from '../../store';
 import { CatalogueActions, CatalogueSelectors } from '../../store/CatalogueStore';
 import { useDispatch } from 'react-redux';
