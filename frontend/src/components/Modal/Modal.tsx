@@ -17,10 +17,6 @@ export function Modal() {
     const selectedSubCategories = useAppSelector(CatalogueSelectors.getSelectedSubCategories);
     const selectedSubProducts = useAppSelector(CatalogueSelectors.getSelectedSubProducts);
 
-    useEffect(() => {
-        
-    }, [modalView]);
-
     const selectedProductNames: string = useMemo(() => {
         if (selectedProducts.length === 0) {
             return 'None Selected';
