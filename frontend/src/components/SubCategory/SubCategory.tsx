@@ -173,7 +173,7 @@ export function SubCategoryComponent(props: Props) {
                             />,
                         )}
 
-                        <div style={{paddingTop: '1em', paddingBottom: '1em'}}>
+                        <div style={{paddingBottom: '1em', height: '4em', alignContent: 'center'}}>
                             { 
                                 !formState && 
                                 <div>
@@ -182,13 +182,13 @@ export function SubCategoryComponent(props: Props) {
                             }
                             {
                                 formState &&
-                                <div style={{display: 'flex'}}>
+                                <div style={{display: 'flex',  justifyContent: 'space-between'}}>
                                     <input
-                                        style={ComponentStyles.common.searchBar}
+                                        style={{width: '75%'}}
                                         onChange={(e) => onSubProductFormChange(e.target.value)}>    
                                     </input>
-                                    <div style={{display: 'flex'}}> 
-                                        <button 
+                                    <div style={{display: 'flex', width: '20%', justifyContent: 'space-evenly'}}> 
+                                        <button
                                             style={ComponentStyles.common.saveButton}
                                             onClick={submitSubProductForm}
                                         >+ADD</button>
