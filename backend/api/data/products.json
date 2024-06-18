@@ -1,0 +1,12 @@
+{
+    "products": [
+        {
+            "productId": 1,
+            "productName": "Electric Motors"
+        },
+        {
+            "productId": 2,
+            "productName": "Communication Equipment"
+        }
+    ]
+}

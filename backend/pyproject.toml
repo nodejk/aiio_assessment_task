@@ -1,0 +1,45 @@
+[tool.mypy]
+plugins = [
+  "pydantic.mypy"
+]
+
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+package-mode = false
+
+
+[tool.black]
+line-length = 120
+target-version = ['py312']
+skip-string-normalization = true
+
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.6"
+djangorestframework = "^3.15.1"
+django-filter = "^24.2"
+django-environ = "^0.11.2"
+djangorestframework-camel-case = "^1.4.2"
+psycopg = {extras = ["binary", "pool"], version = "^3.1.19"}
+black = "^24.4.2"
+autoflake = "^2.3.1"
+django-cors-headers = "^4.3.1"
+
+
+mypy = "^1.10.0"
+isort = "^5.13.2"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = false
