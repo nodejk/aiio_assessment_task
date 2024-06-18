@@ -82,7 +82,7 @@ export function ProductComponent(props: Props) {
                     paddingRight: '1em',
                 }}>
                 <div>
-                    <text>{props.product.name}</text>
+                    {props.product.name}
                 </div>
                     <input
                         type='checkbox'
