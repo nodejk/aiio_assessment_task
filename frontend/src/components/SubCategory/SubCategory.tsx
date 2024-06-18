@@ -66,7 +66,7 @@ export function SubCategoryComponent(props: Props) {
                 subCategoryId: props.subCategory.id,
             }));
         } else {
-            dispatch(CatalogueActions.removeSubProductToSubCategory({
+            dispatch(CatalogueActions.removeSubProductFromSubCategory({
                 subProductId: subProduct.id,
                 productId: props.productId, 
                 subCategoryId: props.subCategory.id,

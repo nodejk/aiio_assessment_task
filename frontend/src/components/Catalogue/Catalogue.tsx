@@ -38,9 +38,9 @@ export function Catalogue() {
         }
 
         if (value) {
-            dispatch(CatalogueActions.addProductToSelected(product));
+            dispatch(CatalogueActions.addProductToSelection(product));
         } else {
-            dispatch(CatalogueActions.removeProductFromSelected({productId}));
+            dispatch(CatalogueActions.removeProductFromSelection({productId}));
         }
     }
 

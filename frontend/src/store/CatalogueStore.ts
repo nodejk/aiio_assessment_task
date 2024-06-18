@@ -21,12 +21,12 @@ export const catalogueSlice = createSlice({
     name: 'product',
     initialState: initialState,
     reducers: {
-        addProductToSelected: (state, action: PayloadAction<Product>) => {
+        addProductToSelection: (state, action: PayloadAction<Product>) => {
             const { id } = action.payload;
 
             state.products[id] = {...action.payload, subCategories: {}};
         },
-        removeProductFromSelected: (state, action: PayloadAction<{productId: number}>) => {
+        removeProductFromSelection: (state, action: PayloadAction<{productId: number}>) => {
             const { productId } = action.payload;
 
             delete state.products[productId];
@@ -50,7 +50,7 @@ export const catalogueSlice = createSlice({
 
             state.products[productId].subCategories[subCategoryId].subProducts[id] = subProduct;
         },
-        removeSubProductToSubCategory: (state, action: PayloadAction<{subProductId: number, productId: number, subCategoryId: number}>) => {
+        removeSubProductFromSubCategory: (state, action: PayloadAction<{subProductId: number, productId: number, subCategoryId: number}>) => {
             const { subProductId, subCategoryId, productId } = action.payload;
 
             delete state.products[productId].subCategories[subCategoryId].subProducts[subProductId];
