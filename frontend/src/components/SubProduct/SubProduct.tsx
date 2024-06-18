@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
-import { SubProductStore } from '../../models/SubProduct';
+import React, { useEffect, useState } from 'react';
+import { SubProduct } from '../../models/SubProduct';
 import { ComponentStyles } from '../../styles';
 
 interface Props {
-    subProduct: SubProductStore,
+    checked: boolean,
+    subProduct: SubProduct,
     toggleCheckBoxChange: (value: boolean, subProductId: number) => void,
     subCategoryId: number,
 }
 
 export function SubProductComponent (props: Props) {
-    const [subProductSelected, setSubProductSelected] = useState<boolean>(false);
+    const [subProductSelected, setSubProductSelected] = useState<boolean>(props.checked);
+
+    useEffect(() => {
+        setSubProductSelected(props.checked);
+    }, [props.checked]);
 
     function checkBox(value: boolean) {
         setSubProductSelected(value);
         props.toggleCheckBoxChange(value, props.subProduct.id);
-
     }
     
     return (

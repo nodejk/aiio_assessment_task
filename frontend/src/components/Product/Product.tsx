@@ -45,7 +45,7 @@ export function ProductComponent(props: Props) {
         setSearchQuery(value);
     }
 
-    const filteredSubCategories = useMemo(() => {        
+    const filteredSubCategories: SubCategoryState[] = useMemo(() => {        
         if (searchQuery === '') {
             return subCategories;
         }
@@ -62,6 +62,16 @@ export function ProductComponent(props: Props) {
         if (subCategory === undefined) {
             return;
         }
+
+        const newSubCategories = subCategories.map((subCat) => {
+            if (subCat.id === subCategoryId) {
+                return {...subCat, checked: value};
+            } else {
+                return subCat;
+            }
+        });
+
+        setSubCategories(newSubCategories);        
 
         if (value) {
             dispatch(CatalogueActions.addSubCategoryToProduct({
@@ -110,6 +120,7 @@ export function ProductComponent(props: Props) {
                                     productId={props.product.id}
                                     onCheckBoxChange={onCheckBoxChange} 
                                     key={subCategory.id}
+                                    checked={subCategory.checked}
                                     subCategory={subCategory}
                                 />,
                             )}

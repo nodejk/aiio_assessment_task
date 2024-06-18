@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { SubCategory } from '../../models/SubCategory';
 import { SubProduct } from '../../models/SubProduct';
 import { API } from '../../services';
@@ -9,6 +9,7 @@ import { ComponentStyles } from '../../styles';
 import { CatalogueActions } from '../../store/CatalogueStore';
 
 interface Props {
+    checked: boolean,
     productId: number,
     onCheckBoxChange: (value: boolean, subCategoryId: number) => void,
     subCategory: SubCategory
@@ -23,7 +24,7 @@ interface SubProductForm {
 }
 
 export function SubCategoryComponent(props: Props) {
-    const [subCategoryExpanded, setSubCategoryExpanded] = useState<boolean>(false);
+    const [subCategoryExpanded, setSubCategoryExpanded] = useState<boolean>(props.checked);
     const [subProducts, setSubProducts] = useState<SubProductState[]>([]);
     const dispatch = useAppDispatch();
 
@@ -34,6 +35,10 @@ export function SubCategoryComponent(props: Props) {
     const [formError, setFormError] = useState<boolean>(false);
     
     const [searchQuery, setSearchQuery] = useState<string>('');
+
+    useEffect(() => {
+        setSubCategoryExpanded(props.checked);
+    }, [props.checked]);
     
     async function toggleSubCategoryCheckBox(value: boolean) {
         setSubCategoryExpanded(value);
@@ -57,6 +62,16 @@ export function SubCategoryComponent(props: Props) {
         if (subProduct === undefined) {
             return;
         }
+
+        const newSubProducts = subProducts.map((subProd) => {
+            if (subProd.id === subProductId) {
+                return {...subProd, checked: value};
+            } else {
+                return subProd;
+            }
+        });
+
+        setSubProducts(newSubProducts);
 
         if (value) {
             dispatch(CatalogueActions.addSubProductToSubCategory({
@@ -165,6 +180,7 @@ export function SubCategoryComponent(props: Props) {
 
                             { filteredSubProducts.map((subProd) =>  
                                 <SubProductComponent
+                                    checked={subProd.checked}
                                     toggleCheckBoxChange={toggleSubProductCheckBox}
                                     key={subProd.id}
                                     subCategoryId={props.subCategory.id}
